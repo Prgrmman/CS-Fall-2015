@@ -1,0 +1,17 @@
+This is how I'm gonna write approaching the problem:
+
+Task: encode.c
+
+example input string "ABC"
+which is an array of three characters in ASCII.
+So really, you have three hex values: 0x41, 0x42, and 0x43.
+The problem is that to convert to base64, you only consider 6 bits at a time.
+That means that the last two bits of 0x41 ("01") become part of the NEXT base 64 digit
+
+I need to make complete sets of 6. I steal the first 6 bits from the first byte. I then use the remaining 2 bits from the first byte and take 4 bits from the second byte. I then use the remaining 4 bits from the second byte and take 2 bits from the 3rd byte. I then use the remaining 6 bits from the third byte.
+
+
+
+
+  
+
